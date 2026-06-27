@@ -3,239 +3,392 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alireza Jozani | Scientific Computing, Quantum Dynamics & Superconducting Devices</title>
-  <meta name="description" content="Research portfolio of Alireza Jozani: scientific computing, non-Hermitian quantum dynamics, superconducting Josephson devices, cryogenic measurement support, and physics-based data analysis." />
-  <meta property="og:title" content="Alireza Jozani | R&D Physics Portfolio" />
+  <title>Alireza Jozani | Physics R&D Portfolio</title>
+  <meta name="description" content="Alireza Jozani — Physics PhD candidate at the University of Tübingen. Portfolio in scientific computing, numerical quantum dynamics, superconducting Josephson devices, cryogenic measurement support, and instrumentation-oriented data analysis." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jlooop.github.io/" />
+  <meta property="og:title" content="Alireza Jozani | Physics R&D Portfolio" />
   <meta property="og:description" content="Scientific computing, numerical quantum dynamics, superconducting-device analysis, and applied physics instrumentation." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jlooop.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alireza Jozani",
+    "alternateName": "A. Jozani",
+    "email": "mailto:jozani.alireza@gmail.com",
+    "jobTitle": "Physics PhD Candidate",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Tübingen"
+    },
+    "url": "https://jlooop.github.io/",
+    "sameAs": [
+      "https://github.com/jloOop"
+    ],
+    "knowsAbout": [
+      "scientific computing",
+      "quantum dynamics",
+      "superconducting devices",
+      "Josephson junctions",
+      "cryogenic measurement",
+      "Python",
+      "CuPy",
+      "HPC simulation",
+      "applied physics instrumentation"
+    ]
+  }
+  </script>
   <style>
     :root {
-      --bg: #f7f7f4;
-      --panel: #ffffff;
-      --ink: #111827;
+      --bg: #f2f0ea;
+      --ink: #101624;
       --muted: #5b6472;
-      --line: #d9ded8;
-      --accent: #194f54;
-      --accent-2: #6d7f3f;
-      --chip: #edf2ef;
-      --shadow: 0 18px 50px rgba(17, 24, 39, 0.08);
-      --radius: 22px;
-      --max: 1120px;
-      font-synthesis-weight: none;
+      --soft: #e5e0d5;
+      --line: rgba(16, 22, 36, 0.14);
+      --panel: rgba(255, 255, 255, 0.74);
+      --panel-solid: #fffdf8;
+      --dark: #111827;
+      --accent: #006b68;
+      --accent-2: #b35d2e;
+      --accent-3: #a2b86a;
+      --shadow: 0 24px 80px rgba(16, 22, 36, 0.10);
+      --radius-lg: 32px;
+      --radius-md: 20px;
+      --max: 1160px;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background: radial-gradient(circle at top left, rgba(25, 79, 84, 0.10), transparent 34rem), var(--bg);
       color: var(--ink);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.55;
+      background:
+        linear-gradient(90deg, rgba(16,22,36,0.035) 1px, transparent 1px) 0 0 / 44px 44px,
+        linear-gradient(rgba(16,22,36,0.035) 1px, transparent 1px) 0 0 / 44px 44px,
+        radial-gradient(circle at 10% 5%, rgba(0,107,104,0.15), transparent 30rem),
+        radial-gradient(circle at 92% 20%, rgba(179,93,46,0.12), transparent 28rem),
+        var(--bg);
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.50), rgba(255,255,255,0.10));
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
 
     .wrap {
-      width: min(var(--max), calc(100% - 40px));
+      width: min(var(--max), calc(100% - 42px));
       margin: 0 auto;
     }
 
-    header {
-      padding: 32px 0 18px;
+    .topbar {
+      padding: 26px 0 18px;
     }
 
     nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      align-items: center;
+      gap: 22px;
+      padding: 14px 0;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 18px;
     }
 
     .brand {
-      font-weight: 760;
-      letter-spacing: -0.02em;
-      color: var(--ink);
+      display: inline-grid;
+      gap: 2px;
+      font-weight: 820;
+      letter-spacing: -0.03em;
+    }
+
+    .brand small {
+      color: var(--muted);
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.66rem;
     }
 
     .navlinks {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
       font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .navlinks a {
+      padding: 7px 11px;
+      border-radius: 999px;
+    }
+
+    .navlinks a:hover {
+      background: rgba(255,255,255,0.74);
+      text-decoration: none;
     }
 
     .hero {
+      min-height: 70vh;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.65fr);
+      gap: 28px;
       align-items: stretch;
-      padding: 64px 0 38px;
+      padding: 58px 0 28px;
     }
 
-    .hero-main {
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(217,222,216,0.88);
-      border-radius: var(--radius);
-      padding: 42px;
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.68);
+      background: linear-gradient(145deg, rgba(255,255,255,0.88), rgba(255,253,248,0.62));
       box-shadow: var(--shadow);
+      padding: clamp(30px, 6vw, 60px);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 240px;
+      height: 240px;
+      border: 34px solid rgba(0,107,104,0.13);
+      border-radius: 50%;
     }
 
     .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 28px;
       color: var(--accent);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
       font-size: 0.78rem;
-      margin: 0 0 16px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 99px;
     }
 
     h1 {
+      max-width: 820px;
       margin: 0;
-      font-size: clamp(2.3rem, 6vw, 4.9rem);
-      line-height: 0.98;
-      letter-spacing: -0.075em;
+      font-size: clamp(3rem, 8.5vw, 7.1rem);
+      line-height: 0.88;
+      letter-spacing: -0.09em;
+      font-weight: 900;
     }
 
-    .subtitle {
-      margin: 20px 0 0;
-      font-size: clamp(1.05rem, 2vw, 1.28rem);
-      color: var(--muted);
-      max-width: 780px;
+    .lead {
+      max-width: 760px;
+      margin: 26px 0 0;
+      color: #4b5563;
+      font-size: clamp(1.08rem, 2.2vw, 1.38rem);
+      line-height: 1.55;
     }
 
-    .buttons {
+    .mini-focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .mini-focus span {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.68);
+      color: #303847;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 34px;
     }
 
     .button {
       display: inline-flex;
+      min-height: 46px;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
       border-radius: 999px;
-      font-weight: 700;
+      padding: 0 19px;
+      font-weight: 820;
       border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--ink);
+      background: var(--panel-solid);
+      box-shadow: 0 8px 28px rgba(16,22,36,0.04);
     }
 
     .button.primary {
-      background: var(--accent);
+      background: var(--dark);
       color: white;
-      border-color: var(--accent);
+      border-color: var(--dark);
     }
 
-    .side-card {
-      background: var(--ink);
+    .button:hover { transform: translateY(-1px); text-decoration: none; }
+
+    .side {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+    }
+
+    .role-card, .availability-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.62);
+      background: var(--dark);
       color: white;
-      border-radius: var(--radius);
       padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 340px;
       box-shadow: var(--shadow);
     }
 
-    .side-card h2 {
-      font-size: 1.12rem;
-      margin: 0 0 14px;
-      letter-spacing: -0.02em;
+    .availability-card {
+      background: linear-gradient(145deg, #153b3c, #082c2d);
     }
 
-    .side-card p {
-      color: rgba(255,255,255,0.76);
-      margin: 0 0 18px;
+    .kicker {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,0.60);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-weight: 800;
+      font-size: 0.72rem;
     }
 
-    .side-list {
+    .role-list {
       display: grid;
-      gap: 12px;
-      margin-top: 16px;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .side-item {
-      border-top: 1px solid rgba(255,255,255,0.17);
-      padding-top: 12px;
+    .role-list li {
+      padding: 13px 0;
+      border-top: 1px solid rgba(255,255,255,0.16);
+      font-weight: 720;
+      color: rgba(255,255,255,0.92);
     }
 
-    main { padding-bottom: 80px; }
-
-    section {
-      padding: 34px 0;
+    .availability-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.84);
     }
+
+    main { padding-bottom: 72px; }
+
+    section { padding: 38px 0; }
 
     .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: minmax(180px, 0.42fr) 1fr;
+      gap: 26px;
       border-top: 1px solid var(--line);
-      padding-top: 28px;
+      padding-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .section-head .label {
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 850;
+      font-size: 0.74rem;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: clamp(1.6rem, 4vw, 2.45rem);
+      font-size: clamp(1.55rem, 3.6vw, 2.9rem);
+      line-height: 1;
       letter-spacing: -0.055em;
-      line-height: 1.05;
     }
 
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .grid {
+    .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(12, 1fr);
       gap: 18px;
     }
 
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .project {
+      background: rgba(255,255,255,0.70);
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 34px rgba(16,22,36,0.06);
       padding: 24px;
-      box-shadow: 0 6px 22px rgba(17, 24, 39, 0.04);
     }
 
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.17rem;
-      letter-spacing: -0.025em;
-      line-height: 1.22;
+    .project.large { grid-column: span 7; }
+    .project.medium { grid-column: span 5; }
+    .project.full { grid-column: span 12; }
+
+    .project .number {
+      display: inline-flex;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: -0.04em;
     }
 
-    .card p { margin: 0; color: var(--muted); }
-    .card .links { margin-top: 16px; font-weight: 720; }
-    .card .links a { margin-right: 12px; }
+    .project h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+    }
 
-    .chips {
+    .project p { margin: 0; color: var(--muted); }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      font-weight: 820;
+      color: var(--accent);
+    }
+
+    .tool-strip {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .chip {
+    .tool-strip span {
       display: inline-flex;
       align-items: center;
-      border: 1px solid var(--line);
-      background: var(--chip);
-      padding: 7px 11px;
       border-radius: 999px;
-      color: #263238;
-      font-size: 0.91rem;
+      border: 1px solid rgba(16,22,36,0.12);
+      background: rgba(255,255,255,0.66);
+      padding: 8px 12px;
+      color: #2f3848;
+      font-weight: 680;
+      font-size: 0.93rem;
     }
 
     .pubs {
@@ -244,61 +397,85 @@
     }
 
     .pub {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 115px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 20px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.70);
+      border-radius: var(--radius-md);
     }
 
-    .pub strong { display: block; margin-bottom: 3px; }
+    .pub .year {
+      color: var(--accent-2);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: 1.18rem;
+    }
+
+    .pub strong {
+      display: block;
+      margin-bottom: 4px;
+      line-height: 1.28;
+    }
+
     .pub span { color: var(--muted); }
 
-    .contact {
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    .note {
-      border-left: 4px solid var(--accent-2);
-      background: rgba(109, 127, 63, 0.08);
-      padding: 16px 18px;
-      border-radius: 14px;
-      color: #333a2a;
+    .contact-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.72);
+      padding: 24px;
     }
+
+    .contact-card h3 { margin: 0 0 12px; }
+    .contact-card p { margin: 7px 0; color: var(--muted); }
+    .contact-card a { color: var(--accent); font-weight: 760; }
 
     footer {
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.92rem;
       padding: 24px 0 42px;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 900px) {
-      .hero, .contact { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      .hero-main { padding: 28px; }
-      .section-head { display: block; }
-      .section-head p { margin-top: 10px; }
+    @media (max-width: 940px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .side { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .section-head { grid-template-columns: 1fr; gap: 8px; }
+      .project.large, .project.medium, .project.full { grid-column: span 12; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 560px) {
-      .wrap { width: min(var(--max), calc(100% - 26px)); }
+    @media (max-width: 660px) {
+      .wrap { width: min(var(--max), calc(100% - 28px)); }
       nav { align-items: flex-start; flex-direction: column; }
-      .navlinks { gap: 12px; }
+      .side { grid-template-columns: 1fr; }
       .hero { padding-top: 34px; }
-      .buttons { display: grid; }
+      h1 { font-size: clamp(2.8rem, 20vw, 4.5rem); }
+      .actions { display: grid; }
       .button { width: 100%; }
+      .pub { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header class="wrap">
+  <header class="topbar wrap">
     <nav aria-label="Primary navigation">
-      <a class="brand" href="#top">Alireza Jozani</a>
+      <a class="brand" href="#top">
+        Alireza Jozani
+        <small>Physics R&amp;D portfolio</small>
+      </a>
       <div class="navlinks">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#focus">Focus</a>
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </div>
@@ -307,71 +484,85 @@
 
   <main id="top" class="wrap">
     <section class="hero" aria-label="Introduction">
-      <div class="hero-main">
+      <div class="hero-card">
         <p class="eyebrow">Physics PhD candidate · University of Tübingen</p>
-        <h1>Scientific computing, quantum dynamics, and superconducting-device analysis.</h1>
-        <p class="subtitle">
-          I work across Python/CuPy research-code workflows, non-Hermitian Schrödinger/Pauli detector models,
-          absorbing-boundary simulations, superconducting Josephson-device analysis, cryogenic measurement support,
-          and physics-based data analysis.
+        <h1>Alireza Jozani</h1>
+        <p class="lead">
+          I work on numerical quantum dynamics, absorbing-boundary detector models,
+          superconducting Josephson devices, and cryogenic / instrumentation data analysis.
         </p>
-        <div class="buttons">
+        <div class="mini-focus" aria-label="Short technical focus">
+          <span>Scientific computing</span>
+          <span>Quantum dynamics</span>
+          <span>Superconducting devices</span>
+          <span>Applied instrumentation</span>
+        </div>
+        <div class="actions">
           <a class="button primary" href="https://github.com/jloOop">GitHub profile</a>
-          <a class="button" href="#projects">Selected projects</a>
+          <a class="button" href="#work">Selected work</a>
           <a class="button" href="mailto:jozani.alireza@gmail.com?subject=R%26D%20portfolio%20contact">Email</a>
         </div>
       </div>
-      <aside class="side-card" aria-label="Role focus">
-        <div>
-          <h2>Target R&amp;D roles</h2>
-          <p>Best fit where numerical physics, simulation, device data, and measurement-chain reasoning meet.</p>
-          <div class="side-list">
-            <div class="side-item">Scientific Computing / GPU-HPC Simulation</div>
-            <div class="side-item">Computational Physics / Quantum Modeling</div>
-            <div class="side-item">Quantum Hardware / Superconducting Devices</div>
-            <div class="side-item">Applied Physics / Instrumentation</div>
-          </div>
+
+      <aside class="side" aria-label="Role focus">
+        <div class="role-card">
+          <p class="kicker">Target R&amp;D roles</p>
+          <ul class="role-list">
+            <li>Scientific Computing / GPU-HPC Simulation</li>
+            <li>Computational Physics / Quantum Modeling</li>
+            <li>Quantum Hardware / Superconducting Devices</li>
+            <li>Applied Physics / Instrumentation</li>
+          </ul>
+        </div>
+        <div class="availability-card">
+          <p class="kicker">Portfolio route</p>
+          <p>Selected public work: numerical solvers, reproducibility material, device-analysis notebooks, figures, and technical documentation.</p>
         </div>
       </aside>
     </section>
 
-    <section id="projects">
+    <section id="work" aria-label="Selected work">
       <div class="section-head">
-        <h2>Selected projects</h2>
-        <p>Research-code and portfolio material selected for deep-tech R&amp;D job search. These are research and reproducibility artifacts, not production software products.</p>
+        <div class="label">Selected work</div>
+        <h2>Three technical threads.</h2>
       </div>
-      <div class="grid">
-        <article class="card">
-          <h3>Numerical quantum dynamics and detector-time simulations</h3>
+
+      <div class="project-grid">
+        <article class="project large">
+          <div class="number">01</div>
+          <h3>Numerical quantum dynamics and detection-time simulations</h3>
           <p>
-            Python/CuPy finite-difference workflows for Schrödinger/Pauli detector models with absorbing boundary conditions,
-            complex absorbing potentials, probability-current diagnostics, norm-loss checks, trajectory sampling, and publication-quality post-processing.
+            Python/CuPy finite-difference workflows for Schrödinger/Pauli detector models with absorbing boundaries,
+            complex absorbing potentials, probability-current diagnostics, norm-loss checks, trajectory sampling,
+            and publication-oriented post-processing.
           </p>
-          <div class="links">
+          <div class="project-links">
             <a href="https://github.com/jloOop/Numerical--SchrodingerEquation-and-BohmianTrajectories">Repository</a>
             <a href="https://arxiv.org/abs/2603.22044">arXiv</a>
           </div>
         </article>
 
-        <article class="card">
-          <h3>Spin–momentum filtering by a spin-coupled absorbing boundary</h3>
+        <article class="project medium">
+          <div class="number">02</div>
+          <h3>Spin–momentum filtering at an absorbing boundary</h3>
           <p>
-            Numerical/theoretical project on spinor absorbing-boundary simulations, Pauli dynamics in a harmonic waveguide,
-            boundary-symbol diagnostics, finite-window detector statistics, selected data, figures, and animations.
+            Numerical/theoretical work on spinor absorbing-boundary simulations, Pauli dynamics in a harmonic waveguide,
+            boundary-symbol diagnostics, finite-window detection statistics, selected data, figures, and animations.
           </p>
-          <div class="links">
+          <div class="project-links">
             <a href="https://github.com/jloOop/Boundary-Spin-Momentum-Filtering-Data">Repository</a>
             <a href="https://arxiv.org/abs/2606.25650">arXiv</a>
           </div>
         </article>
 
-        <article class="card">
+        <article class="project full">
+          <div class="number">03</div>
           <h3>YBCO Josephson diode / Josephson ratchet analysis</h3>
           <p>
-            Superconducting-device R&amp;D portfolio material covering cryogenic I–V analysis, critical-current asymmetry,
+            Superconducting-device R&amp;D material covering cryogenic I–V analysis, critical-current asymmetry,
             rectification, loaded operation, output power, efficiency, and measurement-chain context for YBCO Josephson devices.
           </p>
-          <div class="links">
+          <div class="project-links">
             <a href="https://github.com/jloOop/Master-Thesis-Tuebingen-and-Beyond--">Repository</a>
             <a href="https://link.aps.org/doi/10.1103/vqhx-16ss">Paper</a>
           </div>
@@ -379,72 +570,85 @@
       </div>
     </section>
 
-    <section id="skills">
+    <section id="focus" aria-label="Technical focus">
       <div class="section-head">
-        <h2>Technical focus</h2>
-        <p>Keywords selected for R&amp;D roles in scientific computing, quantum modeling, superconducting devices, and applied instrumentation.</p>
+        <div class="label">Technical focus</div>
+        <h2>Methods, tools, and physical systems.</h2>
       </div>
-      <div class="chips" aria-label="Technical skills">
-        <span class="chip">Python</span>
-        <span class="chip">NumPy / SciPy</span>
-        <span class="chip">CuPy / CUDA via CuPy</span>
-        <span class="chip">Finite differences</span>
-        <span class="chip">Crank–Nicolson</span>
-        <span class="chip">GMRES / Krylov</span>
-        <span class="chip">Sparse non-Hermitian systems</span>
-        <span class="chip">Schrödinger / Pauli dynamics</span>
-        <span class="chip">Absorbing boundary conditions</span>
-        <span class="chip">Complex absorbing potentials</span>
-        <span class="chip">Probability-current diagnostics</span>
-        <span class="chip">Trajectory sampling</span>
-        <span class="chip">HPC / Slurm research workflows</span>
-        <span class="chip">YBCO Josephson junctions</span>
-        <span class="chip">Cryogenic I–V analysis</span>
-        <span class="chip">FFT / PSD noise analysis</span>
-        <span class="chip">DAQ / ADC measurement chains</span>
-        <span class="chip">Cryogenic dipstick instrumentation</span>
+      <div class="tool-strip">
+        <span>Python</span>
+        <span>NumPy / SciPy</span>
+        <span>CuPy / CUDA via CuPy</span>
+        <span>Finite differences</span>
+        <span>Crank–Nicolson</span>
+        <span>GMRES / Krylov</span>
+        <span>Sparse non-Hermitian systems</span>
+        <span>Schrödinger / Pauli dynamics</span>
+        <span>Absorbing boundary conditions</span>
+        <span>Complex absorbing potentials</span>
+        <span>Probability-current diagnostics</span>
+        <span>Trajectory sampling</span>
+        <span>HPC / Slurm research workflows</span>
+        <span>YBCO Josephson junctions</span>
+        <span>Cryogenic I–V analysis</span>
+        <span>FFT / PSD noise analysis</span>
+        <span>DAQ / ADC measurement chains</span>
+        <span>Cryogenic dipstick instrumentation</span>
       </div>
     </section>
 
-    <section id="publications">
+    <section id="publications" aria-label="Selected publications and manuscripts">
       <div class="section-head">
-        <h2>Selected publications and manuscripts</h2>
-        <p>Publication status is stated conservatively. Manuscripts are not described as published unless accepted or published.</p>
+        <div class="label">Publications</div>
+        <h2>Selected papers and manuscripts.</h2>
       </div>
       <div class="pubs">
         <div class="pub">
-          <strong><a href="https://arxiv.org/abs/2603.22044">Detection Time Distribution Predicted Using Absorbing Boundary Conditions and Imaginary Potentials</a></strong>
-          <span>A. Jozani and R. Tumulka. Accepted for publication in Physical Review Research, 2026.</span>
+          <div class="year">2026</div>
+          <div>
+            <strong><a href="https://arxiv.org/abs/2603.22044">Detection Time Distribution Predicted Using Absorbing Boundary Conditions and Imaginary Potentials</a></strong>
+            <span>A. Jozani and R. Tumulka. Accepted for publication in Physical Review Research.</span>
+          </div>
         </div>
         <div class="pub">
-          <strong><a href="https://arxiv.org/abs/2606.25650">Spin–Momentum Impedance and Filtering by a Spin-Coupled Absorbing Boundary Condition</a></strong>
-          <span>A. Jozani. Preprint / manuscript, 2026.</span>
+          <div class="year">2026</div>
+          <div>
+            <strong><a href="https://arxiv.org/abs/2606.25650">Spin–Momentum Impedance and Filtering by a Spin-Coupled Absorbing Boundary Condition</a></strong>
+            <span>A. Jozani. Preprint / manuscript.</span>
+          </div>
         </div>
         <div class="pub">
-          <strong><a href="https://link.aps.org/doi/10.1103/vqhx-16ss">YBa<sub>2</sub>Cu<sub>3</sub>O<sub>7</sub> Josephson diode fabricated by focused-helium-ion-beam irradiation</a></strong>
-          <span>C. Schmid*, A. Jozani*, R. Kleiner, D. Koelle, and E. Goldobin. Physical Review Applied 24, 014041, 2025. *Equal contribution.</span>
+          <div class="year">2025</div>
+          <div>
+            <strong><a href="https://link.aps.org/doi/10.1103/vqhx-16ss">YBa<sub>2</sub>Cu<sub>3</sub>O<sub>7</sub> Josephson diode fabricated by focused-helium-ion-beam irradiation</a></strong>
+            <span>C. Schmid*, A. Jozani*, R. Kleiner, D. Koelle, and E. Goldobin. Physical Review Applied 24, 014041. *Equal contribution.</span>
+          </div>
         </div>
         <div class="pub">
-          <strong>Anisotropic Mimetic Cosmology</strong>
-          <span>M. H. Abbassi, A. Jozani, and H. R. Sepangi. Physical Review D 97, 123510, 2018.</span>
+          <div class="year">2018</div>
+          <div>
+            <strong>Anisotropic Mimetic Cosmology</strong>
+            <span>M. H. Abbassi, A. Jozani, and H. R. Sepangi. Physical Review D 97, 123510.</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" aria-label="Contact">
       <div class="section-head">
-        <h2>Contact</h2>
-        <p>For R&amp;D roles or technical discussion related to scientific computing, computational physics, quantum hardware, or applied instrumentation.</p>
+        <div class="label">Contact</div>
+        <h2>Technical contact and links.</h2>
       </div>
-      <div class="contact">
-        <div class="card">
-          <h3>Links</h3>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Direct links</h3>
           <p>Email: <a href="mailto:jozani.alireza@gmail.com">jozani.alireza@gmail.com</a></p>
           <p>GitHub: <a href="https://github.com/jloOop">github.com/jloOop</a></p>
           <p>Location: Tübingen, Germany</p>
         </div>
-        <div class="note">
-          <strong>Portfolio note.</strong> This site presents selected research-code, reproducibility, and physics-data-analysis material. It should be read as an R&amp;D research portfolio rather than a production software portfolio.
+        <div class="contact-card">
+          <h3>Current direction</h3>
+          <p>Deep-tech R&amp;D roles connecting simulation, quantum/device physics, scientific computing, and measurement-oriented analysis.</p>
         </div>
       </div>
     </section>
