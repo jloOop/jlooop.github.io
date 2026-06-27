@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jlooop.github.io/sitemap.xml
